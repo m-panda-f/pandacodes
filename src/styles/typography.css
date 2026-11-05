@@ -1,0 +1,76 @@
+/**
+ * pandacodes // TYPOGRAPHY SYSTEM
+ */
+
+body {
+  font-family: var(--font-body);
+  color: var(--pc-text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  color: var(--pc-text-primary);
+  line-height: 1.1;
+  margin: 0;
+}
+
+.heading-display {
+  font-size: clamp(2.8rem, 6.8vw, 5.4rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  background: var(--pc-gradient-title);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.heading-section {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--pc-text-primary);
+}
+
+.heading-card {
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+  letter-spacing: -0.025em;
+  color: var(--pc-text-primary);
+}
+
+.subheading {
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  color: var(--pc-text-secondary);
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.mono-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pc-text-muted);
+  font-weight: 500;
+}
+
+.mono-spec {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  color: var(--pc-text-muted);
+}
+
+p {
+  margin: 0;
+  color: var(--pc-text-secondary);
+}

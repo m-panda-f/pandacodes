@@ -1,0 +1,758 @@
+/* ==========================================================================
+   pandacodes // WORKS SECTION (Two Separation & 100% Pure Image Square Bento Grid)
+   ========================================================================== */
+
+.works-section {
+  position: relative;
+  width: 100%;
+  padding: clamp(3.5rem, 6.5vw, 6.5rem) 0;
+  background-color: var(--pc-surface-ground, #ffffff);
+  border-top: 1px solid var(--pc-border-subtle);
+}
+
+/* Two Separation Layout: Left Text & Right Square Bento Grid */
+.works-split-container {
+  display: grid;
+  grid-template-columns: 0.85fr 1.35fr;
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: start;
+}
+
+/* ==========================================================================
+   LEFT SEPARATION: EDITORIAL INFORMATION & MONUMENTAL TITLE
+   ========================================================================== */
+
+.works-editorial-col {
+  position: sticky;
+  top: calc(var(--nav-height) + 1.5rem);
+  display: flex;
+  flex-direction: column;
+  padding-right: 0.5rem;
+}
+
+.works-editorial-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 2.7vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: #0c0c0e;
+  margin: 0 0 1.5rem 0;
+}
+
+/* Bullet Points (Clean Editorial List matching reference design) */
+.works-bullet-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.75rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.works-bullet-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-family: var(--font-body);
+  font-size: clamp(0.88rem, 1.05vw, 0.98rem);
+  line-height: 1.6;
+  color: #52525c;
+  letter-spacing: -0.01em;
+}
+
+.works-bullet-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #0c0c0e;
+  margin-top: 0.55rem;
+  flex-shrink: 0;
+}
+
+/* Giant Monumental Typography (PREVIOUS PROJECTS) */
+.works-monumental-text {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Syne', 'Montserrat', var(--font-display), sans-serif;
+  font-size: clamp(3.2rem, 5.2vw, 5.4rem);
+  font-weight: 900;
+  line-height: 0.88;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #0c0c0e;
+  margin-top: clamp(2rem, 4vw, 3.5rem);
+  user-select: none;
+}
+
+.monumental-line {
+  display: block;
+}
+
+/* ==========================================================================
+   RIGHT SEPARATION: 100% PURE IMAGE-FILLED 1:1 SQUARE BENTO GRID
+   - Box 1: Spans cols 1-2, rows 1-2 -> 2x2 SQUARE (Pure Image)
+   - Box 2: Col 3, Row 1             -> 1x1 SQUARE (Pure Image)
+   - Box 3: Col 3, Row 2             -> 1x1 SQUARE (Pure Image)
+   - Box 4: Col 1, Row 3             -> 1x1 SQUARE (Pure Image)
+   - Box 5: Col 1, Row 4             -> 1x1 SQUARE (Pure Image)
+   - Box 6: Spans cols 2-3, rows 3-4 -> 2x2 SQUARE (Pure Image)
+   ========================================================================== */
+
+.works-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+    "box1 box1 box2"
+    "box1 box1 box3"
+    "box4 box6 box6"
+    "box5 box6 box6";
+  gap: 1rem;
+}
+
+/* Grid Area Assignment */
+.work-bento-card[data-area="box1"] {
+  grid-area: box1;
+}
+
+.work-bento-card[data-area="box2"] {
+  grid-area: box2;
+}
+
+.work-bento-card[data-area="box3"] {
+  grid-area: box3;
+}
+
+.work-bento-card[data-area="box4"] {
+  grid-area: box4;
+}
+
+.work-bento-card[data-area="box5"] {
+  grid-area: box5;
+}
+
+.work-bento-card[data-area="box6"] {
+  grid-area: box6;
+}
+
+/* Base Bento Card: 100% SQUARE by design, Pure Image Container */
+.work-bento-card {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  height: 100%;
+  background: #141418;
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.25s ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.work-bento-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 20px 45px -8px rgba(0, 0, 0, 0.2);
+}
+
+.work-bento-card:focus-visible {
+  outline: 2px solid #000000;
+  outline-offset: 3px;
+}
+
+/* 100% Pure Image Filled Box (Zero text, zero arrows) */
+.work-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.work-bento-card:hover .work-card-img {
+  transform: scale(1.05);
+}
+
+/* ==========================================================================
+   INTERACTIVE POPUP DIALOG (Case Study Details & Action Buttons)
+   ========================================================================== */
+
+.works-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 14, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  animation: modalBackdropFade 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalBackdropFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.works-modal-dialog {
+  position: relative;
+  width: 100%;
+  max-width: 660px;
+  max-height: 88vh;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  border-radius: 26px;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: modalSlideUp 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Modal Header */
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.6rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.modal-header-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.modal-category {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #71717a;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.modal-metric-badge {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 700;
+  color: #0c0c0e;
+  background: rgba(0, 0, 0, 0.06);
+  padding: 0.18rem 0.55rem;
+  border-radius: var(--radius-full);
+}
+
+.modal-header-live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.22rem 0.65rem;
+  background: #0c0c0e;
+  color: #ffffff;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.modal-header-live-badge:hover {
+  background: #27272a;
+  transform: translateY(-1px);
+}
+
+.modal-live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 6px #22c55e;
+  animation: pulseLiveDot 1.6s infinite ease-in-out;
+  flex-shrink: 0;
+}
+
+@keyframes pulseLiveDot {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
+}
+
+.modal-live-arrow {
+  font-size: 0.75rem;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.modal-header-live-badge:hover .modal-live-arrow {
+  transform: translate(2px, -2px);
+}
+
+.modal-close-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #f4f5f8;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  color: #0c0c0e;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.modal-close-btn:hover {
+  background: #000000;
+  color: #ffffff;
+  transform: rotate(90deg);
+}
+
+/* Modal Visual Banner */
+.modal-visual-hero {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background: #0c0c0e;
+}
+
+.modal-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Modal Hero Live URL Bar */
+.modal-hero-live-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(12, 12, 14, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 0.65rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  gap: 0.75rem;
+}
+
+.modal-hero-url-text {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: #d4d4d8;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.modal-hero-launch-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  padding: 0.28rem 0.8rem;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.modal-hero-launch-link:hover {
+  background: #ffffff;
+  color: #0c0c0e;
+  transform: translateY(-1px);
+}
+
+/* Modal Body */
+.modal-body {
+  flex: 1;
+  padding: 1.6rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.modal-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.8vw, 1.85rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: #0c0c0e;
+  margin: 0 0 0.25rem 0;
+  line-height: 1.2;
+}
+
+.modal-subtitle {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #646470;
+  margin: 0 0 0.5rem 0;
+}
+
+.modal-desc {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: #444450;
+  margin: 0;
+}
+
+/* Highlights Block */
+.modal-section-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.modal-block-heading {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  color: #8e8e98;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.modal-highlights-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.modal-highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #1e1e24;
+}
+
+.modal-highlight-dot {
+  font-weight: 700;
+  color: #0c0c0e;
+  font-size: 0.82rem;
+  flex-shrink: 0;
+}
+
+/* Technical Specifications Grid (2x2 Matrix) */
+.modal-specs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+  background: #f8f9fa;
+  padding: 1.1rem;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.modal-spec-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.spec-cell-label {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  color: #8e8e98;
+  text-transform: uppercase;
+}
+
+.spec-cell-value {
+  font-family: var(--font-display);
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #0c0c0e;
+}
+
+.spec-tags-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.spec-tag-pill {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: #0c0c0e;
+  background: #ffffff;
+  padding: 0.15rem 0.45rem;
+  border-radius: var(--radius-xs);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Modal Actions Footer */
+.modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.85rem;
+  padding: 1.15rem 1.6rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+  flex-wrap: wrap;
+}
+
+.modal-action-live-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.78rem 1.4rem;
+  background: #0c0c0e;
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+}
+
+.modal-action-live-btn:hover {
+  background: #27272a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+}
+
+.modal-primary-btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.78rem 1.35rem;
+  background: #000000;
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  border-radius: var(--radius-full);
+  border: none;
+  cursor: pointer;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+}
+
+.modal-primary-btn:hover {
+  background: #202026;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.24);
+}
+
+.modal-btn-arrow {
+  display: inline-block;
+  transition: transform 0.22s ease;
+}
+
+.modal-primary-btn:hover .modal-btn-arrow {
+  transform: translateX(4px);
+}
+
+.modal-secondary-btn {
+  padding: 0.78rem 1.35rem;
+  background: #ffffff;
+  color: #0c0c0e;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  cursor: pointer;
+  transition: all 0.22s ease;
+}
+
+.modal-secondary-btn:hover {
+  background: #f4f5f8;
+  border-color: rgba(0, 0, 0, 0.28);
+}
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
+@media (max-width: 960px) {
+  .works-split-container {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .works-editorial-col {
+    position: relative;
+    top: auto;
+    padding-right: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .works-monumental-text {
+    margin: 1.25rem 0 1rem 0;
+    font-size: clamp(2.4rem, 7.5vw, 3.6rem);
+  }
+
+  .works-bento-grid {
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+    gap: 0.85rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .works-section {
+    padding: clamp(2.5rem, 5vw, 3.5rem) 0;
+  }
+
+  .works-split-container {
+    gap: 1.75rem;
+  }
+
+  .works-editorial-title {
+    font-size: clamp(1.45rem, 6vw, 1.85rem);
+    margin-bottom: 1rem;
+  }
+
+  .works-bullet-list {
+    margin-bottom: 1.25rem;
+    gap: 0.85rem;
+  }
+
+  .works-bullet-item {
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+
+  .works-monumental-text {
+    font-size: clamp(1.85rem, 9.2vw, 2.6rem);
+    letter-spacing: -0.03em;
+    margin: 1rem 0 0.5rem 0;
+  }
+
+  /* Compact, properly scaled 100% square bento grid on mobile (No overflow, centered) */
+  .works-bento-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+      "box1 box1 box2"
+      "box1 box1 box3"
+      "box4 box6 box6"
+      "box5 box6 box6";
+    width: 100%;
+    max-width: min(100%, 360px);
+    margin: 0 auto;
+    gap: 0.5rem;
+  }
+
+  .work-bento-card {
+    border-radius: 12px;
+  }
+
+  /* Mobile Modal Dialog */
+  .works-modal-backdrop {
+    padding: 0.75rem;
+  }
+
+  .works-modal-dialog {
+    max-height: 90vh;
+    border-radius: 18px;
+  }
+
+  .modal-visual-hero {
+    height: 170px;
+  }
+
+  .modal-body {
+    padding: 1.15rem;
+    gap: 1.1rem;
+  }
+
+  .modal-specs-grid {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+    padding: 0.85rem;
+  }
+
+  .modal-footer {
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 1rem 1.15rem;
+  }
+
+  .modal-action-live-btn,
+  .modal-primary-btn,
+  .modal-secondary-btn {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.78rem;
+    padding: 0.72rem 1.1rem;
+  }
+}

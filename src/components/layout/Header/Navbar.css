@@ -1,0 +1,640 @@
+/* ==========================================================================
+   pandacodes // NAVBAR & LEFT SLIDE-IN MOBILE DRAWER
+   ========================================================================== */
+
+.navbar-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 0.65rem 0;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition:
+    background-color 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    backdrop-filter 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    -webkit-backdrop-filter 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.28s ease,
+    box-shadow 0.28s ease,
+    padding 0.28s ease;
+}
+
+/* Frosted Translucent White Glass when scrolled - blurs & shields all content passing underneath */
+.navbar-header.scrolled {
+  padding: 0.42rem 0;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
+}
+
+@supports not (backdrop-filter: blur(20px)) {
+  .navbar-header.scrolled {
+    background: rgba(255, 255, 255, 0.96);
+  }
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   DESKTOP NAVBAR PILL (Visible on >= 860px)
+   ========================================================================== */
+
+.desktop-navbar-pill {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.45rem 1.15rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--pc-border-medium);
+  box-shadow: 0 4px 18px -2px rgba(0, 0, 0, 0.05);
+  transition: all var(--transition-base);
+}
+
+.navbar-header.scrolled .desktop-navbar-pill {
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 14px -2px rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.94);
+}
+
+.navbar-brand-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0.2rem 0.4rem;
+  border-radius: var(--radius-sm);
+  transition: opacity var(--transition-fast);
+}
+
+.navbar-brand-link:hover {
+  opacity: 0.8;
+}
+
+/* Desktop Navigation Links */
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item {
+  position: relative;
+  list-style: none;
+}
+
+.nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 1rem 0.55rem 1rem;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  letter-spacing: -0.015em;
+  color: #646470;
+  text-decoration: none;
+  font-weight: 500;
+  background: transparent !important;
+  border: none !important;
+  outline: none;
+  box-shadow: none !important;
+  transition: color 0.15s ease;
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.nav-link:hover {
+  color: #000000;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Zero-Lag 2px Solid Black Underline on Active & Hover */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  width: 0%;
+  height: 2px;
+  background-color: #000000;
+  border-radius: 2px;
+  transform: translateX(-50%);
+  transition: width 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+/* Active Link: Deep crisp black text + 2px underline */
+.nav-link.active {
+  color: #000000 !important;
+  font-weight: 600;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.nav-link.active::after {
+  width: calc(100% - 1.8rem);
+}
+
+.nav-link:hover::after {
+  width: calc(100% - 1.8rem);
+}
+
+/* Right Section */
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+/* ==========================================================================
+   MOBILE HEADER BAR (Only visible on < 860px)
+   ========================================================================== */
+
+/* ==========================================================================
+   MOBILE HEADER BAR (Only visible on < 860px)
+   Border-free, completely plain, with Logo in true center
+   ========================================================================== */
+
+.mobile-header-bar {
+  display: none;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem 0.25rem;
+  background: transparent;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Left: Borderless Plain Menu Button */
+.mobile-menu-trigger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5px;
+  width: 38px;
+  height: 38px;
+  padding: 8px 4px;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  cursor: pointer;
+  justify-self: start;
+  transition: transform var(--transition-fast);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-menu-trigger:active {
+  transform: scale(0.9);
+}
+
+.menu-bar {
+  display: block;
+  height: 2px;
+  background-color: var(--pc-black);
+  border-radius: 2px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.2s ease,
+              width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bar-top { width: 22px; }
+.bar-mid { width: 14px; }
+.bar-bot { width: 20px; }
+
+.mobile-menu-trigger.active .bar-top {
+  width: 20px;
+  transform: translateY(7px) rotate(45deg);
+}
+
+.mobile-menu-trigger.active .bar-mid {
+  opacity: 0;
+  transform: translateX(-8px);
+}
+
+.mobile-menu-trigger.active .bar-bot {
+  width: 20px;
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Center: Brand Logo */
+.mobile-brand-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  justify-self: center;
+  transition: opacity var(--transition-fast);
+}
+
+.mobile-brand-link:hover {
+  opacity: 0.85;
+}
+
+/* Right: Unique Magnetic Tactile Start Button */
+.mobile-action-pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.42rem 0.92rem;
+  border-radius: var(--radius-full);
+  background: #0c0c0e;
+  color: #ffffff;
+  font-family: 'Space Grotesk', var(--font-display);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+  cursor: pointer;
+  overflow: hidden;
+  justify-self: end;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-action-pill:active {
+  transform: scale(0.92);
+}
+
+.action-pip {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.9);
+  animation: actionPipPulse 2.2s infinite ease-in-out;
+}
+
+@keyframes actionPipPulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.25);
+    box-shadow: 0 0 10px #ffffff;
+  }
+}
+
+.action-text {
+  font-weight: 700;
+}
+
+.action-arrow {
+  font-size: 0.82rem;
+  font-weight: 700;
+  transition: transform 0.2s ease;
+}
+
+.mobile-action-pill:active .action-arrow {
+  transform: translate(2px, -2px);
+}
+
+/* Continuous Subtle Sheen */
+.mobile-action-pill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.24) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  animation: sheenGlide 4s infinite ease-in-out;
+  pointer-events: none;
+}
+
+@keyframes sheenGlide {
+  0%, 30% {
+    left: -100%;
+  }
+  65%, 100% {
+    left: 200%;
+  }
+}
+
+/* ==========================================================================
+   STREET-STYLE MOBILE DRAWER (Brutalist-Luxe Noir)
+   ========================================================================== */
+
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 14, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1000;
+}
+
+.drawer-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-left-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: min(88vw, 360px);
+  height: 100vh;
+  height: 100dvh;
+  background: #0c0c0e;
+  color: #ffffff;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 20px 0 60px rgba(0, 0, 0, 0.55);
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem 1.4rem;
+  transform: translateX(-102%);
+  transition: transform 0.42s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow-y: auto;
+}
+
+.mobile-left-drawer.open {
+  transform: translateX(0);
+}
+
+/* Drawer Logo Theme Inversion (Crisp White on Dark) */
+.mobile-left-drawer .brand-wordmark {
+  color: #ffffff;
+}
+
+.mobile-left-drawer .brand-glyph rect {
+  fill: #ffffff;
+}
+
+.mobile-left-drawer .brand-glyph path {
+  stroke: #0c0c0e;
+}
+
+/* Drawer Header */
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.drawer-brand-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.drawer-street-tag {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.45);
+  padding: 0.15rem 0.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-xs);
+}
+
+.drawer-close-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.drawer-close-btn:active {
+  transform: scale(0.9) rotate(90deg);
+  background: #ffffff;
+  color: #0c0c0e;
+}
+
+/* Drawer Body */
+.drawer-body {
+  flex: 1;
+  padding: 1.75rem 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.drawer-meta-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.drawer-menu-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.drawer-menu-count {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.drawer-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+/* Staggered Street Reveal Animation */
+.drawer-nav-item {
+  opacity: 0;
+  transform: translateY(22px) skewY(1deg);
+  transition: opacity 0.35s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-left-drawer.open .drawer-nav-item {
+  opacity: 1;
+  transform: translateY(0) skewY(0);
+  transition-delay: var(--item-delay, 0ms);
+}
+
+.drawer-nav-link {
+  display: flex;
+  align-items: center;
+  padding: 0.85rem 0.5rem;
+  border-radius: var(--radius-sm);
+  font-family: 'Space Grotesk', var(--font-display);
+  font-size: clamp(1.45rem, 5.5vw, 1.95rem);
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.drawer-link-index {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.3);
+  margin-right: 0.85rem;
+  font-weight: 500;
+}
+
+.drawer-link-text {
+  flex: 1;
+  transition: transform 0.22s ease, color 0.22s ease;
+}
+
+.drawer-link-arrow {
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 1.15rem;
+  transform: translateX(-4px);
+  transition: all 0.22s ease;
+}
+
+.drawer-nav-link:hover,
+.drawer-nav-link:active {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.drawer-nav-link:hover .drawer-link-text,
+.drawer-nav-link:active .drawer-link-text {
+  transform: translateX(4px);
+}
+
+.drawer-nav-link:hover .drawer-link-arrow,
+.drawer-nav-link:active .drawer-link-arrow {
+  transform: translateX(2px);
+  color: #ffffff;
+}
+
+.drawer-nav-link.active {
+  color: #ffffff;
+}
+
+.drawer-nav-link.active .drawer-link-index {
+  color: #ffffff;
+}
+
+.drawer-nav-link.active .drawer-link-arrow {
+  color: #ffffff;
+}
+
+/* Drawer Footer */
+.drawer-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.drawer-action-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.85rem 1.25rem;
+  border-radius: var(--radius-full);
+  background: #ffffff;
+  color: #0c0c0e;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+  box-shadow: 0 4px 18px rgba(255, 255, 255, 0.12);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.drawer-action-btn:active {
+  transform: scale(0.96);
+  background: #f0f0f2;
+}
+
+.drawer-btn-arrow {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.drawer-legal-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: rgba(255, 255, 255, 0.35);
+  letter-spacing: 0.08em;
+}
+
+/* ==========================================================================
+   BREAKPOINTS: DESKTOP VS MOBILE
+   ========================================================================== */
+
+@media (max-width: 859px) {
+  .desktop-navbar-pill {
+    display: none;
+  }
+
+  .mobile-header-bar {
+    display: grid;
+  }
+}
+
+@media (min-width: 860px) {
+  .drawer-backdrop,
+  .mobile-left-drawer {
+    display: none;
+  }
+
+  .mobile-header-bar {
+    display: none;
+  }
+}

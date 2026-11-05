@@ -1,0 +1,67 @@
+/**
+ * pandacodes DESIGN SYSTEM // VARIABLES
+ * Modern Minimalist Light-Dominant Architecture
+ */
+
+:root {
+  /* Core Brand Colors */
+  --pc-white: #ffffff;
+  --pc-black: #0c0c0e;
+  --pc-black-pure: #000000;
+
+  /* Surfaces & Elevation (Predominantly White & Clean) */
+  --pc-surface-ground: #ffffff;
+  --pc-surface-0: #fbfbfc;
+  --pc-surface-1: #ffffff;
+  --pc-surface-2: #f4f5f8;
+  --pc-surface-3: #eaebee;
+  --pc-surface-glass: rgba(255, 255, 255, 0.88);
+  --pc-surface-glass-heavy: rgba(255, 255, 255, 0.96);
+  --pc-surface-card: #ffffff;
+
+  /* Typography Colors (High contrast, crisp legibility) */
+  --pc-text-primary: #0a0a0c;
+  --pc-text-secondary: #3b3b44;
+  --pc-text-muted: #666674;
+  --pc-text-dim: #9292a0;
+  --pc-text-inverse: #ffffff;
+
+  /* Architectural Hairline Borders */
+  --pc-border-subtle: rgba(0, 0, 0, 0.06);
+  --pc-border-medium: rgba(0, 0, 0, 0.12);
+  --pc-border-bright: rgba(0, 0, 0, 0.24);
+  --pc-border-solid: #e2e4e9;
+
+  /* Elevated Soft Shadows */
+  --pc-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  --pc-shadow-md: 0 6px 18px -3px rgba(0, 0, 0, 0.06), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
+  --pc-shadow-lg: 0 16px 36px -8px rgba(0, 0, 0, 0.08), 0 4px 10px -2px rgba(0, 0, 0, 0.03);
+  --pc-shadow-hover: 0 20px 44px -8px rgba(0, 0, 0, 0.12);
+
+  /* Gradients & Highlights */
+  --pc-gradient-title: linear-gradient(180deg, #0a0a0c 0%, #3f3f4a 100%);
+  --pc-gradient-card: linear-gradient(180deg, #ffffff 0%, #f9fafb 100%);
+  --pc-gradient-sheen: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.04), transparent);
+
+  /* Typography */
+  --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Radii */
+  --radius-xs: 5px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  /* Layout Dimensions */
+  --layout-max-width: 1280px;
+  --nav-height: 62px;
+
+  /* Motion */
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 160ms var(--ease-smooth);
+  --transition-base: 280ms var(--ease-spring);
+}

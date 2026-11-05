@@ -1,0 +1,1170 @@
+/* ==========================================================================
+   pandacodes // HIGH-CONTRAST ARCHITECTURAL CONTACT HUB (Option 3)
+   ========================================================================== */
+
+.contact-section {
+  position: relative;
+  width: 100%;
+  padding: clamp(4.5rem, 7.5vw, 7.5rem) 0;
+  background-color: var(--pc-surface-0, #fbfbfc);
+  border-top: 1px solid var(--pc-border-subtle);
+  overflow-x: clip;
+}
+
+/* ==========================================================================
+   1. SECTION MASTHEAD & LIVE TELEMETRY
+   ========================================================================== */
+
+.contact-header {
+  max-width: 880px;
+  margin-bottom: clamp(2.5rem, 4.5vw, 4rem);
+}
+
+.contact-telemetry-row {
+  margin-bottom: 1.25rem;
+}
+
+.contact-live-pill {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #0c0c0e;
+  background: #ffffff;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full, 9999px);
+  border: 1.5px solid #0c0c0e;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.contact-live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #10b981;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.7);
+  animation: pulse-dot 2s infinite ease-in-out;
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0.75;
+  }
+}
+
+.telemetry-sep {
+  color: #a1a1aa;
+}
+
+.contact-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4.4vw, 3.6rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.12;
+  color: #0c0c0e;
+  margin: 0 0 1rem 0;
+}
+
+.contact-subtext {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.15vw, 1.1rem);
+  line-height: 1.65;
+  color: #52525c;
+  margin: 0;
+}
+
+/* ==========================================================================
+   2. TWO-COLUMN SPLIT LAYOUT
+   ========================================================================== */
+
+.contact-split-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: start;
+}
+
+/* ==========================================================================
+   3. LEFT PANEL: EXECUTIVE DOSSIER, METRICS & FAQS
+   ========================================================================== */
+
+.contact-info-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* Lead Architect Card */
+.contact-direct-card {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1.5px solid #0c0c0e;
+  border-radius: 18px;
+  padding: 1.75rem 1.6rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+.contact-card-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.contact-card-tag {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: #ffffff;
+  background: #0c0c0e;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-full, 9999px);
+  text-transform: uppercase;
+}
+
+.contact-card-subtag {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #71717a;
+  text-transform: uppercase;
+}
+
+.contact-architect-name {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #0c0c0e;
+  letter-spacing: -0.02em;
+  margin: 0.35rem 0 0.15rem 0;
+}
+
+.contact-architect-role {
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #71717a;
+  margin: 0 0 1.25rem 0;
+}
+
+.contact-email-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  background: #f8f9fa;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  margin-bottom: 1.15rem;
+}
+
+.contact-email-link {
+  font-family: var(--font-mono, monospace);
+  font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+  font-weight: 700;
+  color: #0c0c0e;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: opacity 0.2s ease;
+  word-break: break-all;
+}
+
+.contact-email-link:hover {
+  opacity: 0.75;
+}
+
+.contact-copy-btn {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #0c0c0e;
+  background: #ffffff;
+  border: 1.5px solid #0c0c0e;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-full, 9999px);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.contact-copy-btn:hover {
+  background: #0c0c0e;
+  color: #ffffff;
+}
+
+.contact-card-subtext {
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  line-height: 1.55;
+  color: #646470;
+  margin: 0 0 1.25rem 0;
+}
+
+.contact-channels-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+.contact-channel-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.5rem 0.65rem;
+  font-family: var(--font-display);
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #0c0c0e;
+  text-decoration: none;
+  background: #fbfbfc;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.contact-channel-pill:hover {
+  background: #0c0c0e;
+  color: #ffffff;
+  border-color: #0c0c0e;
+}
+
+.channel-arrow {
+  transition: transform 0.2s ease;
+}
+
+.contact-channel-pill:hover .channel-arrow {
+  transform: translateX(3px);
+}
+
+/* Metrics Matrix */
+.contact-metrics-matrix {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.metric-box {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1.5px solid #0c0c0e;
+  border-radius: 12px;
+  padding: 1.15rem 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.metric-label {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #71717a;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.metric-val {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: #0c0c0e;
+  line-height: 1.2;
+  margin-bottom: 0.25rem;
+}
+
+.metric-caption {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  color: #71717a;
+}
+
+/* FAQ Accordion */
+.contact-faq-wrapper {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1.5px solid #0c0c0e;
+  border-radius: 18px;
+  padding: 1.75rem 1.6rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+}
+
+.faq-tag {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #71717a;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.faq-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0c0c0e;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.25rem 0;
+}
+
+.faq-accordion-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.faq-item {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 10px;
+  background: #fbfbfc;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.faq-item:hover {
+  background: #ffffff;
+  border-color: #0c0c0e;
+}
+
+.faq-item.is-open {
+  background: #ffffff;
+  border-color: #0c0c0e;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.faq-question-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 1.1rem;
+  gap: 0.75rem;
+}
+
+.faq-question-text {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #0c0c0e;
+  line-height: 1.35;
+}
+
+.faq-toggle-icon {
+  font-family: var(--font-mono, monospace);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #0c0c0e;
+  flex-shrink: 0;
+}
+
+.faq-answer-body {
+  padding: 0 1.1rem 0.95rem 1.1rem;
+}
+
+.faq-answer-body p {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: #52525c;
+  margin: 0;
+}
+
+/* ==========================================================================
+   4. RIGHT PANEL: HIGH-CONTRAST ARCHITECTURAL COMMISSION HUB
+   ========================================================================== */
+
+.contact-hub-panel {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1.5px solid #0c0c0e;
+  border-radius: 22px;
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+  box-shadow: 0 16px 45px -10px rgba(0, 0, 0, 0.12);
+}
+
+/* Dual Pathway Mode Switcher */
+.contact-mode-switch {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  background: #f4f5f8;
+  padding: 0.35rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.mode-switch-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: transparent;
+  color: #52525c;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  border: none;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mode-switch-btn:hover {
+  color: #0c0c0e;
+}
+
+.mode-switch-btn.is-active {
+  background: #0c0c0e;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+}
+
+.mode-btn-icon {
+  font-size: 0.88rem;
+}
+
+/* ==========================================================================
+   TAB 1: ARCHITECTURAL BRIEF FORM (Underline Inputs & Structured Tiles)
+   ========================================================================== */
+
+.arch-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.arch-form-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.arch-form-legend {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #0c0c0e;
+  text-transform: uppercase;
+}
+
+.arch-form-subtext {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: #71717a;
+  margin: 0.25rem 0 0 0;
+}
+
+.arch-live-badge {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #10b981;
+  white-space: nowrap;
+}
+
+.arch-row-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.arch-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.arch-label {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #71717a;
+  text-transform: uppercase;
+}
+
+/* Floating Underline Inputs (No bulky box) */
+.arch-input,
+.arch-textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1.5px solid rgba(12, 12, 14, 0.2);
+  padding: 0.65rem 0.1rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #0c0c0e;
+  border-radius: 0;
+  outline: none;
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.arch-input:focus,
+.arch-textarea:focus {
+  border-bottom-color: #0c0c0e;
+  border-bottom-width: 2px;
+}
+
+.arch-input::placeholder,
+.arch-textarea::placeholder {
+  color: #a1a1aa;
+  font-weight: 400;
+  font-size: 0.86rem;
+}
+
+.arch-textarea {
+  min-height: 80px;
+  resize: vertical;
+  line-height: 1.55;
+}
+
+/* Interactive Tiles Grid (Vertical & Package Selectors) */
+.arch-tiles-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.65rem;
+}
+
+.arch-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3rem;
+  background: #fbfbfc;
+  border: 1px solid rgba(12, 12, 14, 0.14);
+  border-radius: 12px;
+  padding: 0.85rem 1.1rem;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.arch-tile:hover {
+  background: #ffffff;
+  border-color: #0c0c0e;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.arch-tile.is-active {
+  background: #0c0c0e;
+  color: #ffffff;
+  border-color: #0c0c0e;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+}
+
+.arch-tile-name {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.arch-tile-detail {
+  font-family: var(--font-body);
+  font-size: 0.76rem;
+  line-height: 1.4;
+  color: #71717a;
+}
+
+.arch-tile.is-active .arch-tile-detail {
+  color: #d4d4d8;
+}
+
+/* Minimalist Chips Row */
+.arch-chips-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.arch-chip {
+  font-family: var(--font-display);
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #52525c;
+  background: #fbfbfc;
+  border: 1px solid rgba(12, 12, 14, 0.12);
+  padding: 0.45rem 0.75rem;
+  border-radius: var(--radius-full, 9999px);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.arch-chip:hover {
+  background: #ffffff;
+  color: #0c0c0e;
+  border-color: #0c0c0e;
+}
+
+.arch-chip.is-active {
+  background: #0c0c0e;
+  color: #ffffff;
+  border-color: #0c0c0e;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
+}
+
+/* Architectural Submit Button */
+.arch-submit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 1.15rem 1.75rem;
+  background: #0c0c0e;
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  border-radius: var(--radius-full, 9999px);
+  border: 1.5px solid #0c0c0e;
+  cursor: pointer;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  margin-top: 0.5rem;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.arch-submit-btn:hover {
+  background: #ffffff;
+  color: #0c0c0e;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.24);
+}
+
+.arch-submit-btn .btn-arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.arch-submit-btn:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+/* ==========================================================================
+   TAB 2: DIRECT 15-MINUTE SYNC (Fast-Track Pathway)
+   ========================================================================== */
+
+.arch-sync-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.sync-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.sync-tag {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #71717a;
+  text-transform: uppercase;
+}
+
+.sync-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2vw, 1.8rem);
+  font-weight: 900;
+  letter-spacing: -0.025em;
+  color: #0c0c0e;
+  margin: 0.2rem 0;
+}
+
+.sync-desc {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #52525c;
+  margin: 0;
+}
+
+.sync-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.15rem;
+}
+
+.sync-card {
+  display: flex;
+  flex-direction: column;
+  background: #fbfbfc;
+  border: 1.5px solid #0c0c0e;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sync-card:hover {
+  transform: translateY(-2px);
+  background: #ffffff;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+}
+
+.sync-card-icon {
+  font-size: 1.35rem;
+  margin-bottom: 0.65rem;
+}
+
+.sync-card-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0c0c0e;
+  letter-spacing: -0.015em;
+  margin: 0 0 0.4rem 0;
+}
+
+.sync-card-desc {
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  line-height: 1.55;
+  color: #646470;
+  margin: 0 0 1.25rem 0;
+}
+
+.sync-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.35rem;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  border-radius: var(--radius-full, 9999px);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  width: fit-content;
+}
+
+.sync-action-btn.btn-primary {
+  background: #0c0c0e;
+  color: #ffffff;
+  border: 1.5px solid #0c0c0e;
+}
+
+.sync-action-btn.btn-primary:hover {
+  background: #ffffff;
+  color: #0c0c0e;
+}
+
+.sync-action-btn.btn-secondary {
+  background: #ffffff;
+  color: #0c0c0e;
+  border: 1.5px solid #0c0c0e;
+}
+
+.sync-action-btn.btn-secondary:hover {
+  background: #0c0c0e;
+  color: #ffffff;
+}
+
+.sync-footer-note {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.85rem 1.15rem;
+  background: #f4f5f8;
+  border-radius: 10px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #0c0c0e;
+}
+
+.sync-pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10b981;
+  flex-shrink: 0;
+}
+
+.arch-submit-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Success Confirmation Banner */
+.contact-success-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  background: #f0fdf4;
+  border: 1.5px solid #16a34a;
+  border-radius: 12px;
+  padding: 1.15rem 1.3rem;
+  margin-top: 0.5rem;
+}
+
+.success-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: #16a34a;
+  color: #ffffff;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.success-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.success-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #14532d;
+  margin: 0;
+}
+
+.success-desc {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: #166534;
+  margin: 0;
+}
+
+/* Error Banner */
+.contact-error-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  background: #fef2f2;
+  border: 1.5px solid #ef4444;
+  border-radius: 12px;
+  padding: 1.15rem 1.3rem;
+  margin-top: 0.5rem;
+}
+
+.error-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: #ef4444;
+  color: #ffffff;
+  border-radius: 50%;
+  font-size: 0.85rem;
+  font-weight: 900;
+  flex-shrink: 0;
+}
+
+.error-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.error-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #991b1b;
+  margin: 0;
+}
+
+.error-desc {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: #b91c1c;
+  margin: 0;
+}
+
+/* ==========================================================================
+   PERSISTENT THANK YOU CONFIRMATION CARD (Replaces Form on Success)
+   ========================================================================== */
+
+.contact-thankyou-card {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(0.5rem, 1.5vw, 1rem) 0;
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.thankyou-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.35rem;
+}
+
+.thankyou-check-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: #0c0c0e;
+  color: #ffffff;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius-full, 9999px);
+}
+
+.check-symbol {
+  font-size: 0.85rem;
+  color: #10b981;
+  font-weight: 900;
+}
+
+.thankyou-live-tag {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #10b981;
+}
+
+.thankyou-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 3.2vw, 2.5rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: #0c0c0e;
+  margin: 0 0 0.85rem 0;
+  line-height: 1.15;
+}
+
+.thankyou-message {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #52525c;
+  margin: 0 0 1.75rem 0;
+}
+
+.thankyou-message strong {
+  color: #0c0c0e;
+}
+
+.thankyou-receipt-box {
+  display: flex;
+  flex-direction: column;
+  background: #fbfbfc;
+  border: 1.5px solid #0c0c0e;
+  border-radius: 14px;
+  padding: 1.35rem 1.45rem;
+  margin-bottom: 1.75rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+.receipt-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.65rem;
+  margin-bottom: 0.85rem;
+  border-bottom: 1px dashed rgba(12, 12, 14, 0.15);
+}
+
+.receipt-label {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #0c0c0e;
+  text-transform: uppercase;
+}
+
+.receipt-timestamp {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.62rem;
+  color: #71717a;
+}
+
+.receipt-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.receipt-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-body);
+  font-size: 0.86rem;
+}
+
+.receipt-key {
+  color: #71717a;
+  font-weight: 600;
+}
+
+.receipt-val {
+  color: #0c0c0e;
+  font-weight: 800;
+  font-family: var(--font-display);
+}
+
+.thankyou-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.thankyou-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 1.15rem 1.75rem;
+  background: #0c0c0e;
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  border-radius: var(--radius-full, 9999px);
+  border: 1.5px solid #0c0c0e;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.thankyou-action-btn:hover {
+  background: #ffffff;
+  color: #0c0c0e;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.24);
+}
+
+.thankyou-action-btn .btn-arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.thankyou-action-btn:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+.thankyou-persist-note {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.65rem;
+  line-height: 1.45;
+  color: #8e8e98;
+  text-align: center;
+  margin: 0;
+}
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
+@media (max-width: 1080px) {
+  .contact-split-layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .contact-hub-panel {
+    order: -1; /* Elevate the form/sync to top on tablet/mobile */
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    padding: clamp(3rem, 6vw, 4.5rem) 0;
+  }
+
+  .arch-row-2col {
+    grid-template-columns: 1fr;
+  }
+
+  .arch-tiles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-metrics-matrix {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-channels-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-email-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .contact-copy-btn {
+    align-self: flex-start;
+  }
+
+  .contact-mode-switch {
+    grid-template-columns: 1fr;
+  }
+}

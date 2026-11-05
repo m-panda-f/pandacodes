@@ -1,0 +1,53 @@
+.metric-stat-card {
+  height: 100%;
+}
+
+.metric-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.metric-dot {
+  color: var(--pc-text-dim);
+  font-size: 0.8rem;
+  transition: color var(--transition-fast);
+}
+
+.metric-stat-card:hover .metric-dot {
+  color: var(--pc-text-primary);
+}
+
+.metric-value-wrapper {
+  margin-bottom: 0.85rem;
+}
+
+.metric-value {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: var(--pc-text-primary);
+  line-height: 1;
+}
+
+.metric-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.metric-label {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--pc-text-primary);
+}
+
+.metric-subtext {
+  font-size: 0.84rem;
+  color: var(--pc-text-muted);
+  line-height: 1.5;
+}

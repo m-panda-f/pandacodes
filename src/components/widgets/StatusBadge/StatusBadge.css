@@ -1,0 +1,23 @@
+.status-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+  user-select: none;
+  background: var(--pc-surface-2);
+  color: var(--pc-text-secondary);
+  border: 1px solid var(--pc-border-subtle);
+  transition: all var(--transition-fast);
+}
+
+.status-badge-pill.badge-live,
+.status-badge-pill.badge-neutral {
+  background: rgba(0, 0, 0, 0.03);
+  color: var(--pc-text-secondary);
+  border-color: var(--pc-border-subtle);
+}

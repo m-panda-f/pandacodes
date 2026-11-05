@@ -1,0 +1,564 @@
+/* ==========================================================================
+   pandacodes // FULL-WIDTH CURVED MONOLITHIC FOOTER
+   ========================================================================== */
+
+:root {
+  --footer-surface: #c8c9cd;
+  --footer-surface-hover: #ffffff;
+  --footer-ink: #0a0a0c;
+  --footer-muted: #646470;
+  --footer-border: rgba(0, 0, 0, 0.08);
+}
+
+.pandacodes-footer {
+  position: relative;
+  width: 100%;
+  margin-top: clamp(2rem, 5vw, 5rem);
+  background-color: transparent;
+  overflow: hidden;
+  z-index: 10;
+}
+
+/* ==========================================================================
+   FULL-WIDTH CURVED DIVIDER (Top Edge Architecture)
+   ========================================================================== */
+
+.footer-top-curve {
+  width: 100%;
+  height: clamp(24px, 4vw, 44px);
+  line-height: 0;
+  display: block;
+  overflow: hidden;
+  transform: translateY(1px);
+  /* Prevent subpixel gaps */
+}
+
+.footer-curve-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Full Width Main Surface */
+.footer-main-surface {
+  position: relative;
+  width: 100%;
+  background: var(--footer-surface);
+  border-top-left-radius: clamp(32px, 6vw, 72px);
+  border-top-right-radius: clamp(32px, 6vw, 72px);
+  border-top: 1px solid var(--footer-border);
+  padding: clamp(2.5rem, 5vw, 4.5rem) clamp(1.5rem, 5vw, 4.5rem) clamp(1.5rem, 3vw, 2.5rem);
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.02);
+}
+
+.footer-content-wrapper {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   TOP LINKS ROW / COLUMNS
+   Desktop: Clean horizontal clusters
+   Mobile: Strictly 2 balanced columns
+   ========================================================================== */
+
+.footer-nav-grid {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  gap: 2rem;
+  padding-bottom: clamp(1rem, 2vw, 2rem);
+}
+
+.footer-nav-col {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.2rem, 2.5vw, 2.5rem);
+  flex-wrap: wrap;
+}
+
+.footer-col-label {
+  display: none;
+  /* Desktop keeps it sleek like the reference image */
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--footer-muted);
+  margin-bottom: 0.25rem;
+}
+
+.footer-nav-link {
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(0.92rem, 1.1vw, 1.05rem);
+  font-weight: 700;
+  color: var(--footer-ink);
+  text-decoration: none;
+  letter-spacing: -0.015em;
+  position: relative;
+  display: inline-block;
+  padding: 0.3rem 0;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--footer-ink);
+  transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.footer-nav-link:hover {
+  color: #000000;
+  transform: translateY(-1px);
+}
+
+.footer-nav-link:hover::after {
+  width: 100%;
+}
+
+.footer-nav-link:active {
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   SOCIAL ICON LINKS (Single horizontal line row)
+   ========================================================================== */
+
+.footer-social-row {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem, 1vw, 0.85rem);
+  flex-wrap: nowrap;
+}
+
+.footer-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: var(--footer-ink);
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.footer-social-link svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.25s ease;
+}
+
+.footer-social-link:hover {
+  background: #000000;
+  color: #ffffff;
+  border-color: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.footer-social-link:hover svg {
+  transform: scale(1.1);
+}
+
+.footer-social-link:active {
+  transform: scale(0.94);
+}
+
+.footer-display-block {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(2rem, 5.5vw, 5.5rem) 0 clamp(1.5rem, 4vw, 4rem) 0;
+  user-select: none;
+  overflow: hidden;
+}
+
+.footer-display-name {
+  display: block;
+  font-family: 'Syne', 'Unbounded', 'Montserrat', sans-serif;
+  font-size: clamp(3.5rem, 14.8vw, 12.5rem);
+  font-weight: 900;
+  line-height: 0.88;
+  color: var(--footer-ink);
+  letter-spacing: clamp(2px, 0.8vw, 6px);
+  text-transform: uppercase;
+  text-align: center;
+  width: 100%;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+  cursor: default;
+}
+
+
+
+/* ==========================================================================
+   BOTTOM HAIRLINE BAR & COPYRIGHT
+   ========================================================================== */
+
+.footer-bottom-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: clamp(1.2rem, 2vw, 1.8rem);
+  border-top: 1px solid var(--footer-border);
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(0.78rem, 0.95vw, 0.86rem);
+  color: var(--footer-muted);
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-copyright-text {
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.footer-back-to-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 0.4rem 0.85rem;
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(0.75rem, 0.92vw, 0.84rem);
+  font-weight: 600;
+  color: var(--footer-ink);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 9999px;
+}
+
+.footer-back-to-top span {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.footer-back-to-top:hover {
+  background: #000000;
+  color: #ffffff;
+  border-color: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.footer-back-to-top:hover span {
+  transform: translateY(-2px);
+}
+
+.footer-back-to-top:active {
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   MOBILE VIEW SPECIFICATION (< 768px)
+   Strictly 2 Columns for links + Monumental FAIZAN display
+   ========================================================================== */
+
+@media (max-width: 767px) {
+  .footer-top-curve {
+    height: 22px;
+  }
+
+  .footer-main-surface {
+    border-top-left-radius: 36px;
+    border-top-right-radius: 36px;
+    padding: 2.2rem 1.25rem 1.5rem 1.25rem;
+  }
+
+  /* Force strictly 2 distinct, clean columns on mobile */
+  .footer-nav-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.75rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .footer-nav-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.9rem;
+  }
+
+  .footer-col-label {
+    display: block;
+    /* Show section headers on mobile for crisp hierarchy */
+    font-size: 0.7rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .footer-col-legal {
+    grid-column: 1;
+  }
+
+  .footer-col-connect {
+    grid-column: 2;
+  }
+
+  /* Social links on phone stay in one single horizontal line */
+  .footer-social-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.45rem;
+    flex-wrap: nowrap;
+  }
+
+  .footer-social-link {
+    width: 32px;
+    height: 32px;
+  }
+
+  .footer-social-link svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .footer-nav-link {
+    font-size: 0.78rem;
+    padding: 0.01rem 0;
+  }
+
+  /* Monumental FAIZAN text on mobile */
+  .footer-display-block {
+    padding: 1.8rem 0 1.4rem 0;
+  }
+
+  .footer-display-name {
+    font-size: clamp(2.2rem, 14vw, 4rem);
+    letter-spacing: clamp(1px, 0.5vw, 3px);
+  }
+
+  .footer-bottom-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.85rem;
+    padding-top: 1.2rem;
+  }
+
+  .footer-back-to-top {
+    align-self: flex-start;
+  }
+}
+
+/* Extra Compact Mobile Screens (< 380px) */
+@media (max-width: 380px) {
+  .footer-main-surface {
+    padding: 1.8rem 1rem 1.25rem 1rem;
+    border-top-left-radius: 28px;
+    border-top-right-radius: 28px;
+  }
+
+  .footer-display-name {
+    font-size: clamp(1.8rem, 12.8vw, 2.3rem);
+    letter-spacing: 1px;
+  }
+
+  .footer-nav-link {
+    font-size: 0.76rem;
+  }
+
+  .footer-social-row {
+    gap: 0.35rem;
+  }
+
+  .footer-social-link {
+    width: 30px;
+    height: 30px;
+  }
+
+  .footer-social-link svg {
+    width: 13px;
+    height: 13px;
+  }
+}
+
+/* ==========================================================================
+   LEGAL MODAL STYLES (Privacy Policy & Terms of Service)
+   ========================================================================== */
+
+.footer-nav-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.footer-nav-btn:hover {
+  opacity: 0.7;
+}
+
+.legal-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background-color: rgba(6, 6, 8, 0.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  animation: legalFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes legalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.legal-modal-container {
+  width: 100%;
+  max-width: 640px;
+  max-height: 85vh;
+  background: #0f1015;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
+  animation: legalSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes legalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.legal-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.legal-modal-tag {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  color: #a0a0b0;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+}
+
+.legal-modal-close {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.legal-modal-close:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: rotate(90deg);
+}
+
+.legal-modal-body {
+  padding: 1.5rem;
+  overflow-y: auto;
+  color: #d8d8e2;
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+}
+
+.legal-modal-title {
+  font-size: clamp(1.2rem, 2vw, 1.45rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.6rem;
+  letter-spacing: -0.02em;
+}
+
+.legal-modal-intro {
+  font-size: 0.92rem;
+  color: #9d9db0;
+  line-height: 1.55;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.legal-modal-section {
+  margin-bottom: 1.25rem;
+}
+
+.legal-modal-section h4 {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.35rem;
+  letter-spacing: -0.01em;
+}
+
+.legal-modal-section p {
+  font-size: 0.84rem;
+  line-height: 1.6;
+  color: #a0a0b2;
+}
+
+.legal-modal-footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: flex-end;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.legal-modal-action-btn {
+  background: #ffffff;
+  color: #000000;
+  border: none;
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.6rem 1.4rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.legal-modal-action-btn:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
